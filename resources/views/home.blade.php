@@ -1,4 +1,6 @@
 @extends('layout')
 @section('conteudo')
-Home
+    <div class="">
+        Home
+    </div>
 @endsection
