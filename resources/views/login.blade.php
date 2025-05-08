@@ -11,7 +11,7 @@
     <main class="flex items-center justify-center h-screen bg-gray-950 p-2">
         <div class="w-md p-8 bg-gray-900 rounded-xl">
             <section class="text-white text-sm sm:text-lg flex flex-col">
-                <div class="flex items-center justify-center text-4xl font-bold">TODO</div>
+                <div class="flex items-center justify-center text-4xl font-bold">NOTAS</div>
                 <form action="#" class="flex flex-col gap-1">
                     <label for="Email">Email</label>
                     <input type="text" name="email" id="email" class="bg-gray-800 rounded-lg px-2 py-2">
