@@ -8,3 +8,4 @@ Route::get('/', function () {
 });
 
 Route::match(['get', 'post'], '/home', [UserController::class, 'index']);
+Route::match(['get', 'post'], '/edit', [UserController::class, 'create']);

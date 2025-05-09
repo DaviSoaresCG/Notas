@@ -7,7 +7,7 @@
                     <h3 class="text-blue-400 text-2xl">Primeira nota</h3>
                     <p>Criado em 19/03/2025 às 19:45</p>
                 </div>
-                <div class="flex flex-row gap-3">
+                <div class="flex flex-row gap-4">
                     <a href="#">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-6">
@@ -24,8 +24,10 @@
                     </a>
                 </div>
             </div>
-            <div class="mt-5">
-                <p>Texto da nota</p>
+            <div class="mt-5 ">
+                <p>Texto da nota Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel repudiandae voluptatibus tempore fugiat quia quam ea voluptate facilis hic labore, quas rem cupiditate ipsam est quis voluptatum, excepturi temporibus at!
+                Commodi dolor dolorem tempore voluptas, quod, ullam ex numquam incidunt cupiditate soluta ad perferendis vero rem minima cum aliquid earum excepturi perspiciatis qui pariatur? Officiis assumenda fugit neque fugiat consectetur.
+                Vel sunt quas id, vero nam excepturi, praesentium odio sit natus explicabo sed quidem. Non, magnam? Delectus consectetur quaerat omnis doloribus impedit voluptatem, animi cumque quod, quo ratione, ad aliquid?</p>
             </div>
         </section>
     </div>
