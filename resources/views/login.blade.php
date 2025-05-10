@@ -19,7 +19,7 @@
                     <label for="Senha">Senha</label>
                     <input type="password" name="password" id="password" class="bg-gray-800 rounded-lg p-2">
 
-                    <button type="submit" class="p-3 bg-blue-700 rounded-xl text-lg my-8 mb-auto cursor-pointer">Logar</button>
+                    <a href="{{route('home')}}" class="p-3 text-center bg-blue-700 rounded-xl text-lg my-8 mb-auto cursor-pointer">Logar</a>
                 </form>
             </section>
         </div>

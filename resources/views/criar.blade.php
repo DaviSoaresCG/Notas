@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.main_layout')
 @section('conteudo')
     <div class="w-full">
         <div class="flex md:flex-row items-center mb-10 justify-between">

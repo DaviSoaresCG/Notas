@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.main_layout')
 @section('conteudo')
     <div class="w-full">
         <section class="w-full h-64 px-5 py-4 bg-gray-900 rounded-2xl ">
