@@ -1,7 +1,7 @@
 @extends('layout')
 @section('conteudo')
     <div class="w-full">
-        <section class="w-full h-64 px-5 py-4 bg-gray-900 rounded-2xl border-2 border-black">
+        <section class="w-full h-64 px-5 py-4 bg-gray-900 rounded-2xl ">
             <div class="flex flex-row items-center justify-between pb-6 border-b-1 border-gray-300/25">
                 <div class="flex flex-col gap-2 justify-center items-start ">
                     <h3 class="text-blue-400 text-2xl">Primeira nota</h3>

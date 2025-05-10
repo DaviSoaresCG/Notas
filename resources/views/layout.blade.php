@@ -9,7 +9,9 @@
 
 <body class="w-full h-full bg-gray-950">
     <header class=" text-white flex flex-row items-center md:h-36 mx-40 px-6 border-b-1 ">
-        <div>LOGO</div>
+        <div>
+            <a href="{{route('home')}}" class="text-2xl">Logo</a>
+        </div>
         <div class="flex flex-row items-center justify-center ml-auto gap-4">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="size-6">
@@ -20,13 +22,14 @@
                 USUARIO
             </p>
             <a href="#"
-                class="py-2 px-3 rounded border-2 border-white hover:bg-white hover:text-black transition-all duration-200 ease-in-out flex items-center justify-center">SAIR</a>
+                class="py-2 px-4 rounded border-2 border-white hover:bg-white hover:text-black transition-all duration-200 ease-in-out flex items-center justify-center">SAIR</a>
         </div>
     </header>
     <main class="flex items-center justify-center mx-40 p-2 h-full mt-16 text-white">
         {{-- caso nao tenha conteudo --}}
-        {{-- <div>
+        {{-- <div class="flex flex-col items-center gap-10">
             <h2 class="font-bold text-3xl">Você nao tem notas criadas!!</h2>
+            <a href="{{route('create')}}" class="py-3 px-10 text-2xl bg-gray-900 rounded border-2 border-black">Criar Nota</a>
         </div> --}}
         {{-- se tiver --}}
         @yield('conteudo')

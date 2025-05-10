@@ -7,5 +7,5 @@ Route::get('/', function () {
     return view('login');
 });
 
-Route::match(['get', 'post'], '/home', [UserController::class, 'index']);
-Route::match(['get', 'post'], '/edit', [UserController::class, 'create']);
+Route::match(['get', 'post'], '/home', [UserController::class, 'index'])->name('home');
+Route::match(['get', 'post'], '/create', [UserController::class, 'create'])->name('create');
