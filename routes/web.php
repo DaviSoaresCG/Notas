@@ -10,6 +10,7 @@ Route::get('/', function () {
 
 // Auth routes
 Route::get('/login', [AuthController::class, 'login']);
+Route::post('/loginSubmit', [AuthController::class, 'loginSubmit'])->name('login_submit');
 Route::get('/logout', [AuthController::class, 'logout']);
 
 Route::match(['get', 'post'], '/home', [UserController::class, 'index'])->name('home');

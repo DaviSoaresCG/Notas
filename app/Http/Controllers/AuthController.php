@@ -8,11 +8,27 @@ class AuthController extends Controller
 {
     public function login()
     {
-
+        return view('login');
     }
 
-    public function logout()
+    public function loginSubmit(Request $request)
     {
-        
+        // mensagens para exibir o erro individualmente
+        $message = [
+            'required' => 'Preencha o campo :attribute',
+            'email.email' => 'Digite um email válido',
+            'password.min' => 'Digite uma senha de mais de 3 caracteres'
+        ];
+
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:3'
+        ], $message);
+
+        $userEmail = $request->input('email');
+        $userPassword = $request->input('password');
+        return view('home');
     }
+
+    public function logout() {}
 }

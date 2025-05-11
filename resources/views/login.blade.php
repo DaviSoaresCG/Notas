@@ -12,14 +12,34 @@
         <div class="w-md p-8 bg-gray-900 rounded-xl">
             <section class="text-white text-sm sm:text-lg flex flex-col">
                 <div class="flex items-center justify-center text-4xl font-bold">NOTAS</div>
-                <form action="#" class="flex flex-col gap-1">
-                    <label for="Email">Email</label>
-                    <input type="text" name="email" id="email" class="bg-gray-800 rounded-lg px-2 py-2">
+                <form action="{{ route('login_submit') }}" method="post" class="flex flex-col gap-1">
+                    @csrf
+                    <label for="email">Email</label>
+                    <input type="text" name="email" id="email" value="{{ old('email') }}"
+                        class="bg-gray-800 rounded-lg px-2 py-2">
 
-                    <label for="Senha">Senha</label>
+                    @foreach ($errors->get('email') as $erro)
+                        <p class="text-sm text-red-500 ml-1">
+                            {{ $erro }}
+                        </p>
+                    @endforeach
+
+                    <label for="password">Senha</label>
                     <input type="password" name="password" id="password" class="bg-gray-800 rounded-lg p-2">
 
-                    <a href="{{route('home')}}" class="p-3 text-center bg-blue-700 rounded-xl text-lg my-8 mb-auto cursor-pointer">Logar</a>
+                    @foreach ($errors->get('password') as $error)
+                        <p class="text-sm text-red-500 ml-1">
+                            {{ $error }}
+                        </p>
+                    @endforeach
+                    {{-- Outra forma de mostrar mensagem de erro, acredito que so mostre uma mensagem --}}
+                    {{-- @error('password')
+                        <p class="text-sm text-red-500 ml-1">
+                            {{$message}}
+                        </p>
+                    @enderror --}}
+                    <button type="submit"
+                        class="p-3 text-center bg-blue-700 rounded-xl text-lg my-8 mb-auto cursor-pointer">Logar</button>
                 </form>
             </section>
         </div>
