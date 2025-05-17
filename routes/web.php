@@ -11,8 +11,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware([CheckIsNotLogged::class])->group(function () {
     Route::get('/login', [AuthController::class, 'login'])->name('login');
     Route::post('/loginSubmit', [AuthController::class, 'loginSubmit'])->name('login_submit');
-    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 //User is not logged
 Route::middleware([CheckIsLogged::class])->group(function () {
