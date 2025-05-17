@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Usuario;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
@@ -27,6 +29,9 @@ class AuthController extends Controller
 
         $userEmail = $request->input('email');
         $userPassword = $request->input('password');
+
+        $users = Usuario::all()->toArray();
+        dd($users);
         // try {
         //     //code...
         // } catch (\PDOException $e) {
