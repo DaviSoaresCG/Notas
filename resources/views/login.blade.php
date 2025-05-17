@@ -8,7 +8,12 @@
 </head>
 
 <body>
-    <main class="flex items-center justify-center h-screen bg-gray-950 p-2">
+    <main class="flex items-center flex-col justify-center gap-10 h-screen bg-gray-950 p-2">
+        @if (session('loginError'))
+            <div class="text-white rounded py-4 px-8 bg-red-800">
+                <p>{{ session('loginError') }}</p>
+            </div>
+        @endif
         <div class="w-md p-8 bg-gray-900 rounded-xl">
             <section class="text-white text-sm sm:text-lg flex flex-col">
                 <div class="flex items-center justify-center text-4xl font-bold">NOTAS</div>

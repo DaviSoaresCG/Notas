@@ -2,16 +2,20 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Middleware\CheckIsLogged;
+use App\Http\Middleware\CheckIsNotLogged;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('login');
-})->name('login');
 
-// Auth routes
-Route::get('/login', [AuthController::class, 'login']);
-Route::post('/loginSubmit', [AuthController::class, 'loginSubmit'])->name('login_submit');
-Route::get('/logout', [AuthController::class, 'logout']);
+// User is Logged
+Route::middleware([CheckIsNotLogged::class])->group(function () {
+    Route::get('/login', [AuthController::class, 'login'])->name('login');
+    Route::post('/loginSubmit', [AuthController::class, 'loginSubmit'])->name('login_submit');
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+});
 
-Route::match(['get', 'post'], '/home', [UserController::class, 'index'])->name('home');
-Route::match(['get', 'post'], '/create', [UserController::class, 'create'])->name('create');
+//User is not logged
+Route::middleware([CheckIsLogged::class])->group(function () {
+    Route::match(['get', 'post'], '/', [UserController::class, 'index'])->name('home');
+    Route::match(['get', 'post'], '/create', [UserController::class, 'create'])->name('create');
+});

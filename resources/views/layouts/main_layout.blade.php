@@ -21,8 +21,8 @@
             <p>
                 USUARIO
             </p>
-            <a href="{{route('login')}}"
-                class="py-2 px-4 rounded border-2 border-white hover:bg-white hover:text-black transition-all duration-200 ease-in-out flex items-center justify-center">SAIR</a>
+            <a href="{{route('logout')}}"
+                class="py-2 px-4 rounded bg-gray-900 transition-all duration-200 ease-in-out flex items-center justify-center">SAIR</a>
         </div>
     </header>
     <main class="flex items-center justify-center mx-40 p-2 h-full mt-16 text-white">
