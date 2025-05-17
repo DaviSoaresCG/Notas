@@ -27,7 +27,11 @@ class AuthController extends Controller
 
         $userEmail = $request->input('email');
         $userPassword = $request->input('password');
-        return view('home');
+        try {
+            //code...
+        } catch (\PDOException $e) {
+            echo "Conexao falha: ".$e->getMessage();
+        }
     }
 
     public function logout() {}
