@@ -10,25 +10,22 @@ class NoteController extends Controller
 {
     public function edit($id)
     {
-        try {
-
-            $id = Crypt::decrypt($id);
-            echo $id;
-        } catch (DecryptException $e) {
-
-            return redirect()->route('home');
-        }
+        $id = $this->decryptId($id);
     }
 
     public function delete($id)
     {
+        $id = $this->decryptId($id);
+    }
+
+    private function decryptId($id)
+    {
         try {
-
             $id = Crypt::decrypt($id);
-            echo $id;
         } catch (DecryptException $e) {
-
             return redirect()->route('home');
         }
+
+        return $id;
     }
 }
