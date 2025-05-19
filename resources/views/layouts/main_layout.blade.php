@@ -14,7 +14,7 @@
         </div>
         <div class="flex flex-row items-center justify-center ml-auto gap-8">
 
-            <p class="flex flex-row gap-2">
+            <p class="flex flex-row gap-1">
 
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="size-6">

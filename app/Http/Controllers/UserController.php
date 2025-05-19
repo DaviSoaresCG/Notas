@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Usuario;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -11,7 +13,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $id = session('user.id');
+        $user = Usuario::find($id);
+        $notes = Usuario::find($id)->notes()->get()->toArray();
     }
 
     /**

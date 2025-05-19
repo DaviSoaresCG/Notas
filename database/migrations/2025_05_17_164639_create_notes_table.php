@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('notes', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->integer('user_id')->unsigned();
+            $table->integer('usuario_id')->unsigned();
             $table->string('title', 200);
             $table->string('text', 3000);
             $table->timestamps();
