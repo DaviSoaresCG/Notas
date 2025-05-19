@@ -13,9 +13,11 @@ class UserController extends Controller
      */
     public function index()
     {
+
         $id = session('user.id');
-        $user = Usuario::find($id);
         $notes = Usuario::find($id)->notes()->get()->toArray();
+
+        return view('home', compact('notes'));
     }
 
     /**
