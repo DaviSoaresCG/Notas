@@ -2,17 +2,17 @@
     <div class="flex flex-row items-center justify-between pb-6 border-b-1 border-gray-300/25">
         <div class="flex flex-col gap-2 justify-center items-start ">
             <h3 class="text-blue-400 text-2xl">{{ $note['title']}}</h3>
-            <p>Criado em {{ $note['created_at'] }}</p>
+            <p>Criado em <strong>{{ date('d-m-Y H:i', strtotime($note['created_at']))}}</strong></p>
         </div>
         <div class="flex flex-row gap-4">
-            <a href="#">
+            <a href=" {{route('edit', ['id' => Crypt::encrypt($note['id'])]) }}">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke-width="1.5" stroke="currentColor" class="size-6 hover:text-blue-400">
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
                 </svg>
             </a>
-            <a href="#">
+            <a href="{{route('delete', ['id' => Crypt::encrypt($note['id'])]) }}">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke-width="1.5" stroke="currentColor" class="size-6 text-red-500">
                     <path stroke-linecap="round" stroke-linejoin="round"
