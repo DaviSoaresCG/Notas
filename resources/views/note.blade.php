@@ -2,7 +2,7 @@
     <div class="flex flex-row items-center justify-between pb-6 border-b-1 border-gray-300/25">
         <div class="flex flex-col gap-2 justify-center items-start ">
             <h3 class="text-blue-400 text-2xl">{{ $note['title']}}</h3>
-            <p>Criado em <strong>{{ date('d-m-Y H:i', strtotime($note['created_at']))}}</strong></p>
+            <p>Criado em <strong>{{ date('d-m-Y', strtotime($note['created_at']))}}</strong> às <strong>{{ date('H:i', strtotime($note['created_at']))}}</strong></p>
         </div>
         <div class="flex flex-row gap-4">
             <a href=" {{route('edit', ['id' => Crypt::encrypt($note['id'])]) }}">

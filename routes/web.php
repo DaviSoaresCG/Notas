@@ -19,6 +19,7 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::middleware([CheckIsLogged::class])->group(function () {
     Route::match(['get', 'post'], '/', [UserController::class, 'index'])->name('home');
     Route::match(['get', 'post'], '/create', [UserController::class, 'create'])->name('create');
+    Route::match(['get', 'post'], '/notesubmit', [NoteController::class, 'newNoteSubmit'])->name('new_note_submit');
 });
 
 //edit route
