@@ -13,17 +13,19 @@
         </div>
         <section class="w-full h-64 px-5 py-4 bg-gray-900 rounded-2xl border-black">
             <div class="flex flex-row items-center justify-between pb-10 border-gray-300/25">
-                <form action="{{ route('new_note_submit') }}" class="flex flex-col w-full">
+                <form action="{{ route('edit_note_submit') }}" class="flex flex-col w-full">
                     @csrf
+                    <input type="hidden" name="noteId" value="{{ Crypt::encrypt($note->id) }}">
                     <label for="Titulo">Titulo</label>
-                    <input type="text" name="title" value="{{old('title')}}" class="bg-gray-800 rounded-lg mb-4 px-2 py-2 w-full">
+                    <input type="text" name="title" value="{{ old('title', $note->title) }}"
+                        class="bg-gray-800 rounded-lg mb-4 px-2 py-2 w-full">
                     @foreach ($errors->get('title') as $error)
                         <p class="text-sm text-red-500 -mt-4 ml-1">
                             {{ $error }}
                         </p>
                     @endforeach
                     <label for="texto">Texto</label>
-                    <textarea name="text" id="texto" cols="4" rows="4" class="bg-gray-800 px-2 py-1 rounded-lg">{{old('text')}}</textarea>
+                    <textarea name="text" id="texto" cols="4" rows="4" class="bg-gray-800 px-2 py-1 rounded-lg">{{ old('text', $note->text) }}</textarea>
                     @foreach ($errors->get('text') as $error)
                         <p class="text-sm text-red-500 ml-1">{{ $error }}</p>
                     @endforeach
@@ -33,7 +35,7 @@
             <a href="{{ route('home') }}"
                 class="bg-red-800 text-white text-lg py-3 w-36 text-center rounded-xl">Cancelar</a>
             <button type="submit"
-                class="bg-blue-800 cursor-pointer text-white text-lg py-3 w-36 text-center rounded-xl">Criar</button>
+                class="bg-blue-800 cursor-pointer text-white text-lg py-3 w-36 text-center rounded-xl">Editar</button>
         </div>
         </form>
     </div>
