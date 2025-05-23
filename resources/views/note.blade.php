@@ -3,11 +3,11 @@
         <div class="flex flex-col gap-2 justify-center items-start ">
             <h3 class="text-blue-400 text-2xl">{{ $note->title }}</h3>
             <p>Criado em <strong>{{ date('d/m/Y', strtotime($note->created_at)) }}</strong> às
-                <strong>{{ date('H:i', strtotime($note['created_at'])) }}</strong>
+                <strong>{{ date('H:i:s', strtotime($note->created_at)) }}</strong>
             </p>
-            @if ($note->created_at !== $note->updated_at)
+            @if ($note->created_at != $note->updated_at)
                 <p>Modificado em <strong>{{ date('d/m/Y', strtotime($note->updated_at)) }}</strong> às
-                    <strong>{{ date('H:i', strtotime($note->updated_at)) }}</strong>
+                    <strong>{{ date('H:i:s', strtotime($note->updated_at)) }}</strong>
                 </p>
             @endif
         </div>
