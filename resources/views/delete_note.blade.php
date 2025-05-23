@@ -18,7 +18,7 @@
                 </svg>
             </div>
             <div class="flex flex-col items-center justify-center gap-2">
-                <p class="text-blue-400 text-4xl">{{ $note['title'] }}</p>
+                <p class="text-blue-400 text-4xl">{{ $note->title }}</p>
                 <p>Você deseja deletar essa nota?</p>
 
                 <form action="{{ route('delete_note_confirm') }}" method="post">

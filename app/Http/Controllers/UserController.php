@@ -15,7 +15,11 @@ class UserController extends Controller
     {
 
         $id = session('user.id');
-        $notes = Usuario::find($id)->notes()->whereNull('deleted_at')->get()->toArray();
+        $notes = Usuario::find($id)
+            ->notes()
+            ->whereNull('deleted_at')
+            ->orderBy('updated_at', 'desc')
+            ->get();
 
         return view('home', compact('notes'));
     }
