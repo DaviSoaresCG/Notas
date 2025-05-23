@@ -108,17 +108,8 @@ class NoteController extends Controller
 
         $note = Note::find($id);
 
-        echo $note->title;
-        //hard delete
-        // $note->delete();
-
-        //soft delete
-        try {
-            $note->deleted_at = date('Y:m:d H:i:s');
-            $note->save();
-        } catch (Exception $e) {
-            echo "ERROR".$e->getMessage();
-        }
+        // soft delete
+        $note->delete();
 
 
         return redirect()->route('home');
