@@ -21,8 +21,8 @@ Route::middleware([CheckIsLogged::class])->group(function () {
     Route::match(['get', 'post'], '/create', [UserController::class, 'create'])->name('create');
     Route::match(['get', 'post'], '/newnotesubmit', [NoteController::class, 'newNoteSubmit'])->name('new_note_submit');
     Route::match(['get', 'post'], '/editnotesubmit', [NoteController::class, 'editNoteSubmit'])->name('edit_note_submit');
+    Route::match(['get', 'post'], '/deletenoteconfirm', [NoteController::class, 'deleteNoteConfirm'])->name('delete_note_confirm');
+    //edit route
+    Route::match(['get', 'post'], '/edit/{id}', [NoteController::class, 'editNote'])->name('edit');
+    Route::match(['get', 'post'], '/delete/{id}', [NoteController::class, 'deleteNote'])->name('delete');
 });
-
-//edit route
-Route::match(['get', 'post'], '/edit/{id}', [NoteController::class, 'editNote'])->name('edit');
-Route::match(['get', 'post'], '/delete/{id}', [NoteController::class, 'deleteNote'])->name('delete');

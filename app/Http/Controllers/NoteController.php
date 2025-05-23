@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Note;
 use App\Services\Operations;
+use Exception;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
@@ -62,7 +63,7 @@ class NoteController extends Controller
 
 
         //check if note_id exists
-        if(!$request->input('noteId') == null){
+        if ($request->input('noteId') == null) {
             return redirect()->route('home');
         }
 
@@ -76,10 +77,9 @@ class NoteController extends Controller
         $note->text = $request->input('text');
         $note->title = $request->input('title');
         $note->save();
-        echo $note->text;
-        //redirect to home
-        // return redirect()->route('home');
 
+        //redirect to home
+        return redirect()->route('home');
     }
 
     public function editNote($id)
@@ -92,17 +92,35 @@ class NoteController extends Controller
     public function deleteNote($id)
     {
         $id = Operations::decryptId($id);
+
+        //load note
+        $note = Note::find($id);
+
+        //show delete note confirmate
+
+        return view('delete_note', compact('note'));
     }
 
-    private function decryptId($id)
+    public function deleteNoteConfirm(Request $request)
     {
-        try {
-            $id = Crypt::decrypt($id);
-        } catch (DecryptException $e) {
+        $id = $request->input('noteId');
+        $id = Operations::decryptId($id);
 
-            return redirect()->route('home');
+        $note = Note::find($id);
+
+        echo $note->title;
+        //hard delete
+        // $note->delete();
+
+        //soft delete
+        try {
+            $note->deleted_at = date('Y:m:d H:i:s');
+            $note->save();
+        } catch (Exception $e) {
+            echo "ERROR".$e->getMessage();
         }
 
-        return $id;
+
+        return redirect()->route('home');
     }
 }

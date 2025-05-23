@@ -35,7 +35,8 @@
             <a href="{{ route('home') }}"
                 class="bg-red-800 text-white text-lg py-3 w-36 text-center rounded-xl">Cancelar</a>
             <button type="submit"
-                class="bg-blue-800 cursor-pointer text-white text-lg py-3 w-36 text-center rounded-xl">Editar</button>
+                class="bg-blue-800 cursor-pointer text-white text-lg py-3 w-36 text-center rounded-xl">Editar
+            </button>
         </div>
         </form>
     </div>
