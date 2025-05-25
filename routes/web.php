@@ -13,7 +13,6 @@ Route::middleware([CheckIsNotLogged::class])->group(function () {
     Route::get('/login', [AuthController::class, 'login'])->name('login');
     Route::post('/loginSubmit', [AuthController::class, 'loginSubmit'])->name('login_submit');
 });
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 //User is not logged
 Route::middleware([CheckIsLogged::class])->group(function () {
@@ -25,4 +24,10 @@ Route::middleware([CheckIsLogged::class])->group(function () {
     //edit route
     Route::match(['get', 'post'], '/edit/{id}', [NoteController::class, 'editNote'])->name('edit');
     Route::match(['get', 'post'], '/delete/{id}', [NoteController::class, 'deleteNote'])->name('delete');
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+});
+
+// error 404
+Route::fallback(function(){
+    return view('fallback');
 });
